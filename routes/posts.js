@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Post = require('../model/POST');
 
-//READ
+//READ       
 router.get('/',async(req, res) => {
     try{
         const posts = await Post.find();
@@ -14,20 +14,20 @@ router.get('/',async(req, res) => {
 
 //CREATE
 router.post('/', async (req, res) => {
+    const { ime, vrsta, spol, dob } = req.body;
     const post = new Post({
-        ime: req.body.ime,
-        vrsta: req.body.vrsta,
-        spol: req.body.spol,
-        dob: req.body.dob
+      ime,
+      vrsta,
+      spol,
+      dob,
     });
-    try{
-    const savedPost = await post.save();
-    res.json(savedPost);
-    }catch(err){
-        res.json({message: err});
+    try {
+      const savedPost = await post.save();
+      res.json(savedPost);
+    } catch (err) {
+      res.json({ message: err });
     }
-    
-});
+  });
 
 //READ ONE
 router.get('/:postId', async (req, res) =>{
