@@ -1,0 +1,15 @@
+//nodejs .gitignore file
+node_modules
+tmp
+dist
+.next
+.DS_Store
+.env
+.env.bak
+.idea
+cypress/screenshots
+cypress/videos
+cypress/mock-servers/index.ts
+cypress/mock-servers/*.log
+sitespeed-result
+.lighthouseci
